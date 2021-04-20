@@ -11,7 +11,8 @@ class Question(models.Model):
 
     # costume method
     def was_published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+        now = timezone.now()
+        return timezone.now() - datetime.timedelta(days=1) <= self.pub_date < now
 
 
     def __str__(self):
